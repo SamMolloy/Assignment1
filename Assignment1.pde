@@ -1,6 +1,8 @@
 PFont font;
 PImage[] background = new PImage[2];//creating an array of images for the background
 Border[] Border = new Border[3];// making 4 border objects
+Clock clock;
+
 float health = random(1, 100);//Random variable to set as the health
 float oxygen = random(1, 100);//random variable for the oxygen level
 float armour = random(1, 100);//random variable for the armour
@@ -25,7 +27,8 @@ void setup()
   Border[0] = new Border(0, 0, 1024, 50);
   Border[1] = new Border(0, 526, 1024, 50);
   Border[2] = new Border(0, 50, 170, 130);
-
+  clock = new Clock (30, 950, 560);
+  //
 }
 
 //Variable for the radar
@@ -66,6 +69,10 @@ void draw()
   }
   theta += speed;
   
+  fill(0, 255, 255);
+  clock.getTime();
+  clock.display();
+  
 }
 
 void Health()
@@ -88,7 +95,7 @@ void Health()
   
   textSize(30);
   text("Health:", 70, 560);
-  text(i, 135, 560);
+  text(i, 115, 560);
   
 }
 
@@ -96,7 +103,7 @@ void Oxygen()
 {
   int i = int(oxygen);
   
-  //series of if, elseif and else statements to change the colour of the health depending on hwo much health you have
+  //series of if, elseif and else statements to change the colour of the oxygen depending on how much you have left
   if(oxygen > 67)
   {
   fill(0, 255, 255);
@@ -112,14 +119,14 @@ void Oxygen()
   
   textSize(30);
   text("Oxygen Level:", 230, 560);
-  text(i+"%", 355, 560);
+  text(i+"%", 315, 560);
 }
 
 void Armour()
 {
   int i = int(armour);
   
-  //series of if, elseif and else statements to change the colour of the health depending on hwo much health you have
+  //series of if, elseif and else statements to change the colour of the armour depending on how much armour you have remaining
   if(armour > 67)
   {
   fill(0, 255, 255);
@@ -134,13 +141,13 @@ void Armour()
   }
   
   textSize(30);
-  text("Armour Strength:", 485, 560);
-  text(i, 645, 560);
+  text("Armour Strength:", 460, 560);
+  text(i, 555, 560);
 }
 
 void Crosshair()
 {
   stroke(255,0,0);
   fill(255,0,0,50);
-  ellipse(mouseX, mouseY, 25, 25);
+  ellipse(mouseX, mouseY, 20, 20);
 }
