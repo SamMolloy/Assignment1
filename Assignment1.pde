@@ -19,6 +19,7 @@ void setup()
   //filling in the borders
   Border[0] = new Border(0, 0, 1024, 50);
   Border[1] = new Border(0, 526, 1024, 50);
+  Border[2] = new Border(0, 50, 170, 130);
 
 }
 
