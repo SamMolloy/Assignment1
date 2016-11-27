@@ -1,3 +1,4 @@
+PFont font;
 PImage[] background = new PImage[2];//creating an array of images for the background
 Border[] Border = new Border[3];// making 4 border objects
 float health = random(1, 100);//Random variable to set as the health
@@ -8,8 +9,12 @@ float armour = random(1, 100);//random variable for the armour
 void setup() 
 {
   size(1024, 576);//setting the size to the size of the background image
+  font = loadFont("agency.vlw");
+  textFont(font);
+  //co-ordinates for the centre of the radar
   centre_x = 85;
   centre_y = 85;
+  
   //for loop to load the images into the array
   for(int i = 0; i < background.length; i++)
   {
@@ -81,9 +86,9 @@ void Health()
     fill (255, 0, 0);
   }
   
-  textSize(25);
+  textSize(30);
   text("Health:", 70, 560);
-  text(i, 155, 560);
+  text(i, 135, 560);
   
 }
 
@@ -105,9 +110,9 @@ void Oxygen()
     fill (255, 0, 0);
   }
   
-  textSize(25);
+  textSize(30);
   text("Oxygen Level:", 230, 560);
-  text(i+"%", 400, 560);
+  text(i+"%", 355, 560);
 }
 
 void Armour()
@@ -128,9 +133,9 @@ void Armour()
     fill (255, 0, 0);
   }
   
-  textSize(25);
+  textSize(30);
   text("Armour Strength:", 485, 560);
-  text(i, 695, 560);
+  text(i, 645, 560);
 }
 
 void Crosshair()
