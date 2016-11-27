@@ -28,4 +28,12 @@ void draw()
   b2.display();
   b3.display();
   b4.display();
+  Health();
+}
+
+void Health()
+{
+  textSize(25);
+  text("Health:", 70, 560);
+  
 }
