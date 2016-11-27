@@ -2,6 +2,7 @@ PImage[] background = new PImage[2];//creating an array of images for the backgr
 Border[] Border = new Border[4];// making 4 border objects
 float health = random(1, 100);//Random variable to set as the health
 float oxygen = random(1, 100);//random variable for the oxygen level
+float armour = random(1, 100);//random variable for the armour
 
 void setup() 
 {
@@ -33,6 +34,7 @@ void draw()
   Health();
   Crosshair();
   Oxygen();
+  Armour();
 }
 
 void Health()
@@ -42,7 +44,7 @@ void Health()
   //series of if, elseif and else statements to change the colour of the health depending on hwo much health you have
   if(health > 67)
   {
-  fill(0, 255, 255);
+  fill(0, 255, 0);
   }
   else if(health < 67 && health > 33)
   {
@@ -79,7 +81,30 @@ void Oxygen()
   
   textSize(25);
   text("Oxygen Level:", 230, 560);
-  text(i, 400, 560);
+  text(i+"%", 400, 560);
+}
+
+void Armour()
+{
+  int i = int(armour);
+  
+  //series of if, elseif and else statements to change the colour of the health depending on hwo much health you have
+  if(armour > 67)
+  {
+  fill(0, 255, 255);
+  }
+  else if(armour < 67 && armour > 33)
+  {
+    fill(255, 165, 0);
+  }
+  else
+  {
+    fill (255, 0, 0);
+  }
+  
+  textSize(25);
+  text("Armour Strength:", 485, 560);
+  text(i, 695, 560);
 }
 
 
