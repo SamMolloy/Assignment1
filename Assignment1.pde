@@ -28,6 +28,7 @@ void draw()
   b3.display();
   b4.display();
   Health();
+  Crosshair();
 }
 
 void Health()
@@ -52,4 +53,11 @@ void Health()
   text("Health:", 70, 560);
   text(i, 155, 560);
   
+}
+
+void Crosshair()
+{
+  stroke(255,0,0);
+  fill(255,0,0,50);
+  ellipse(mouseX, mouseY, 25, 25);
 }
