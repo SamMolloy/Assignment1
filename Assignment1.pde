@@ -1,6 +1,6 @@
 PImage[] background = new PImage[2];//creating an array of images for the background
 Border b1, b2, b3, b4;// making 4 border objects
-
+float health = random(1, 100);//Random variable to set as the health
 
 void setup() 
 {
@@ -22,8 +22,7 @@ void setup()
 void draw() 
 {
   background(background[0]);//setting background image
-  
-  //displaying all the borders
+ 
   b1.display();
   b2.display();
   b3.display();
@@ -33,7 +32,24 @@ void draw()
 
 void Health()
 {
+  int i = int(health);
+  
+  //series of if, elseif and else statements to change the colour of the health depending on hwo much health you have
+  if(health > 67)
+  {
+  fill(0, 255, 255);
+  }
+  else if(health < 67 && health > 33)
+  {
+    fill(255, 165, 0);
+  }
+  else
+  {
+    fill (255, 0, 0);
+  }
+  
   textSize(25);
   text("Health:", 70, 560);
+  text(i, 155, 560);
   
 }
