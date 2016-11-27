@@ -1,13 +1,15 @@
 PImage[] background = new PImage[2];//creating an array of images for the background
-Border[] Border = new Border[4];// making 4 border objects
+Border[] Border = new Border[3];// making 4 border objects
 float health = random(1, 100);//Random variable to set as the health
 float oxygen = random(1, 100);//random variable for the oxygen level
 float armour = random(1, 100);//random variable for the armour
 
+
 void setup() 
 {
   size(1024, 576);//setting the size to the size of the background image
-  
+  centre_x = 85;
+  centre_y = 85;
   //for loop to load the images into the array
   for(int i = 0; i < background.length; i++)
   {
@@ -16,10 +18,17 @@ void setup()
   
   //filling in the borders
   Border[0] = new Border(0, 0, 1024, 50);
-  Border[1] = new Border(0, 50, 50, 575);
-  Border[2] = new Border(50, 526, 974, 50);
-  Border[3] = new Border(974, 526, 50, -476);
+  Border[1] = new Border(0, 526, 1024, 50);
+
 }
+
+//Variable for the radar
+float speed = 0.01;
+int trailLength = 50;  
+float theta = 0;
+float centre_x, centre_y;
+color c = color(0, 255, 255);
+float radius = 75;
 
 void draw() 
 {
@@ -35,6 +44,22 @@ void draw()
   Crosshair();
   Oxygen();
   Armour();
+  
+  //Displaying the radar
+  stroke(0, 255, 255);
+  noFill();
+  ellipse(centre_x, centre_y, radius * 2, radius * 2);
+  float intensityChange = 255.0f / trailLength;
+  for(int i = 0 ; i < trailLength ; i ++)
+  {
+    float lineTheta = theta - (i * speed);
+    stroke(0, 255 - (i * intensityChange), 255 - (i * intensityChange));
+    float x = centre_x + sin(lineTheta) * radius;
+    float y = centre_y - cos(lineTheta) * radius;
+    line(centre_x, centre_y, x, y);
+  }
+  theta += speed;
+  
 }
 
 void Health()
@@ -106,8 +131,6 @@ void Armour()
   text("Armour Strength:", 485, 560);
   text(i, 695, 560);
 }
-
-
 
 void Crosshair()
 {
