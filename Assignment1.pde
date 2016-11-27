@@ -1,5 +1,5 @@
 PImage[] background = new PImage[2];//creating an array of images for the background
-Border b1, b2, b3, b4;// making 4 border objects
+Border[] Border = new Border[4];// making 4 border objects
 float health = random(1, 100);//Random variable to set as the health
 
 void setup() 
@@ -13,20 +13,22 @@ void setup()
   }
   
   //filling in the borders
-  b1 = new Border(0, 0, 1024, 50);
-  b2 = new Border(0, 50, 50, 575);
-  b3 = new Border(50, 526, 974, 50);
-  b4 = new Border(974, 526, 50, -476);
+  Border[0] = new Border(0, 0, 1024, 50);
+  Border[1] = new Border(0, 50, 50, 575);
+  Border[2] = new Border(50, 526, 974, 50);
+  Border[3] = new Border(974, 526, 50, -476);
 }
 
 void draw() 
 {
   background(background[0]);//setting background image
+  
+  for(int i = 0; i<Border.length; i++)
+  {
+    Border[i].display();
+  }
  
-  b1.display();
-  b2.display();
-  b3.display();
-  b4.display();
+
   Health();
   Crosshair();
 }
