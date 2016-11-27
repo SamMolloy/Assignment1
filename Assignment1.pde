@@ -1,6 +1,7 @@
 PImage[] background = new PImage[2];//creating an array of images for the background
 Border[] Border = new Border[4];// making 4 border objects
 float health = random(1, 100);//Random variable to set as the health
+float oxygen = random(1, 100);//random variable for the oxygen level
 
 void setup() 
 {
@@ -23,14 +24,15 @@ void draw()
 {
   background(background[0]);//setting background image
   
+  //for loop to display the borders
   for(int i = 0; i<Border.length; i++)
   {
     Border[i].display();
   }
- 
 
   Health();
   Crosshair();
+  Oxygen();
 }
 
 void Health()
@@ -56,6 +58,31 @@ void Health()
   text(i, 155, 560);
   
 }
+
+void Oxygen()
+{
+  int i = int(oxygen);
+  
+  //series of if, elseif and else statements to change the colour of the health depending on hwo much health you have
+  if(oxygen > 67)
+  {
+  fill(0, 255, 255);
+  }
+  else if(oxygen < 67 && oxygen > 33)
+  {
+    fill(255, 165, 0);
+  }
+  else
+  {
+    fill (255, 0, 0);
+  }
+  
+  textSize(25);
+  text("Oxygen Level:", 230, 560);
+  text(i, 400, 560);
+}
+
+
 
 void Crosshair()
 {
