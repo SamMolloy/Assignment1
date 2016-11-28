@@ -1,4 +1,3 @@
-
 class Border 
 {
   //deacling the variable to be used in the rectangles(borders)

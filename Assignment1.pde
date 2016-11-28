@@ -6,7 +6,8 @@ Button button;
 float health = random(1, 100);//Random variable to set as the health
 float oxygen = random(1, 100);//random variable for the oxygen level
 float armour = random(1, 100);//random variable for the armour
-
+float buttonpressed = 0;//conditional varibale used for the button
+ArrayList<Grid> grid;//Array list used for the lines used to draw the map grid
 
 
 void setup() 
@@ -37,6 +38,10 @@ void setup()
   
   //Creating button object 
   button = new Button("MAP", 900, 1, 100, 45);
+  
+  grid = new ArrayList<Grid>();//
+  
+  
 
 }
 
@@ -89,9 +94,15 @@ void draw()
     fill(0, 255, 255);
     rect(900,1,100,45);
   }
-
   button.Draw();
-   //button = new Button("FULL MAP", 900, 1, 100, 45)
+  
+  if(buttonpressed == 1)
+  {
+    background[1].resize(1024, 576);
+    background(background[1]);
+    
+  }
+   
 }
 
 void Health()
@@ -115,6 +126,9 @@ void Health()
   textSize(30);
   text("HEALTH:", 70, 555);
   text(i, 118, 555);
+  
+  
+  
   
 }
 
@@ -169,4 +183,12 @@ void Crosshair()
   stroke(255,0,0);
   fill(255,0,0,50);
   ellipse(mouseX, mouseY, 20, 20);
+}
+
+void mousePressed()
+{
+  if(button.MouseIsOver())
+  {
+    buttonpressed=1;
+  }
 }
