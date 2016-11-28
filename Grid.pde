@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 class Grid 
 {
   //deacling the variables to be used in drawing the grid
@@ -20,9 +16,5 @@ class Grid
     strokeWeight(2);
     stroke(0, 255, 0);
     line(x1, y1, x2, y2);
-<<<<<<< HEAD
-  }
-=======
   }
 }
->>>>>>> origin/master

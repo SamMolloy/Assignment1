@@ -18,11 +18,7 @@ class Button
   void Draw() 
   {
     noStroke();
-<<<<<<< HEAD
     fill(255, 140, 0, 70);
-=======
-    fill(0, 255, 255, 70);
->>>>>>> origin/master
     rect(x, y, w, h, 10);
     textAlign(CENTER, CENTER);
     fill(0);
@@ -36,9 +32,5 @@ class Button
       return true;
     }
     return false;
-<<<<<<< HEAD
-  }
-=======
   }
 }
->>>>>>> origin/master
