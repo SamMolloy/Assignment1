@@ -4,7 +4,10 @@ Border[] Border = new Border[3];// making 4 border objects
 Clock clock;//making a clock object to put in the hud
 Button button;// creates the button to enter the map
 Button button2;// creates the button to exit the map
-
+Button button3;
+Button button4;
+float healthbutton = 0;//conditional variable for health warning
+float oxygenbutton = 0;//conditional variable for oxygen warning
 float health = random(1, 100);//Random variable to set as the health
 float oxygen = random(1, 100);//random variable for the oxygen level
 float armour = random(1, 100);//random variable for the armour
@@ -48,6 +51,8 @@ void setup()
   //Creating button object 
   button = new Button("MAP", 900, 1, 100, 45);
   button2 = new Button("EXIT", 850, 530, 100, 45);
+  button3 = new Button("WARNING", 25, 470, 100,45);
+  button4 = new Button("WARNING", 210, 470, 100,45);
   
   grid = new ArrayList<Grid>();
   //adding the vertical gridlines to the arraylist
@@ -133,6 +138,31 @@ void draw()
   
      button2.Draw();
   }
+  
+  if(healthbutton == 1)
+  {
+    
+     if(button3.MouseIsOver())
+      {
+        stroke(0);
+        fill(255, 140, 0);
+        rect(25, 470, 100,45);
+      }
+      button3.Draw();
+  }
+  
+   if(oxygenbutton == 1)
+  {
+    
+     if(button4.MouseIsOver())
+      {
+        stroke(0);
+        fill(255, 140, 0);
+        rect(210, 470, 100,45);
+      }
+      button4.Draw();
+  }
+  
    
 }
 
@@ -157,6 +187,12 @@ void Health()
     fill (255, 0, 0);
   }
   text(i, 100, 555);
+  
+  //conditional for warning signal
+  if(health <= 10)
+  {
+    healthbutton = 1;
+  }
 }
 
 //Method to display ocygen level
@@ -180,6 +216,12 @@ void Oxygen()
     fill (255, 0, 0);
   }
   text(i+"%", 270, 555);
+  
+  //conditional for oxygen warning
+  if(oxygen <= 10)
+  {
+    oxygenbutton = 1;
+  }
 }
 
 //Method to display Armour strength
@@ -223,6 +265,16 @@ void mousePressed()
   if(button2.MouseIsOver())
   {
     buttonpressed=0;
+  }
+  
+   if(button3.MouseIsOver())
+  {
+    healthbutton = 0;
+  }
+  
+   if(button4.MouseIsOver())
+  {
+    oxygenbutton = 0;
   }
 }//end mousePressed
 
