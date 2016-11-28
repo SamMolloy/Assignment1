@@ -16,7 +16,7 @@ class Border
   void display() 
   {
     noStroke();
-    fill(0, 200, 255, 70);//setting the border's colour and opacity
+    fill(105, 105, 105, 90);//setting the border's colour and opacity
     rect(x, y, w, h);//drawing the border using rectangles
   }
 }

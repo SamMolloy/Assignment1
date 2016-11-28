@@ -1,7 +1,7 @@
 PFont font;
 PImage[] background = new PImage[2];//creating an array of images for the background
 Border[] Border = new Border[3];// making 4 border objects
-Clock clock;
+Clock clock;//making a clock object to put in the hud
 
 float health = random(1, 100);//Random variable to set as the health
 float oxygen = random(1, 100);//random variable for the oxygen level
@@ -11,8 +11,11 @@ float armour = random(1, 100);//random variable for the armour
 void setup() 
 {
   size(1024, 576);//setting the size to the size of the background image
+  
+  //loading my own font
   font = loadFont("agency.vlw");
   textFont(font);
+  
   //co-ordinates for the centre of the radar
   centre_x = 85;
   centre_y = 85;
@@ -27,11 +30,13 @@ void setup()
   Border[0] = new Border(0, 0, 1024, 50);
   Border[1] = new Border(0, 526, 1024, 50);
   Border[2] = new Border(0, 50, 170, 130);
+ 
+  //placing the clock in the corner of the hud
   clock = new Clock (30, 950, 560);
-  //
+
 }
 
-//Variable for the radar
+//Variables for the radar
 float speed = 0.01;
 int trailLength = 50;  
 float theta = 0;
@@ -69,6 +74,7 @@ void draw()
   }
   theta += speed;
   
+  //setting the colour and displaying the clock
   fill(0, 255, 255);
   clock.getTime();
   clock.display();
@@ -77,7 +83,7 @@ void draw()
 
 void Health()
 {
-  int i = int(health);
+  int i = int(health);//turning the random float into an integer 
   
   //series of if, elseif and else statements to change the colour of the health depending on hwo much health you have
   if(health > 67)
