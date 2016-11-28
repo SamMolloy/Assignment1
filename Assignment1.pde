@@ -45,6 +45,7 @@ void setup()
   
   //Creating button object 
   button = new Button("MAP", 900, 1, 100, 45);
+  button2 = new Button("EXIT", 850, 530, 100, 45);
   
   grid = new ArrayList<Grid>();
   //adding the vertical gridlines to the arraylist
@@ -60,10 +61,7 @@ void setup()
     grid.add(new Grid(50, gridy, 974, gridy));
     gridy = gridy + 79.3;
   }
-  
-  
- 
-}
+}//end setup
 
 //Variables for the radar
 float speed = 0.01;
@@ -115,14 +113,23 @@ void draw()
     fill(0, 255, 255);
     rect(900,1,100,45);
   }
+ 
   button.Draw();
   
   //if the map button is pressed it will switch to a map of the section of mars you are in
   if(buttonpressed == 1)
   {
      background[1].resize(1024, 576);
-    background(background[1]);
+     background(background[1]);
      Grid();
+     if(button2.MouseIsOver())
+      {
+        stroke(0);
+        fill(0, 255, 255);
+        rect(850, 530, 100, 45);
+      }
+  
+     button2.Draw();
   }
    
 }
@@ -213,6 +220,10 @@ void mousePressed()
   if(button.MouseIsOver())
   {
     buttonpressed=1;
+  }
+  if(button2.MouseIsOver())
+  {
+    buttonpressed=0;
   }
 }
 
