@@ -4,7 +4,10 @@ Border[] Border = new Border[3];// making 4 border objects
 Clock clock;//making a clock object to put in the hud
 Button button;// creates the button to enter the map
 Button button2;// creates the button to exit the map
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 float health = random(1, 100);//Random variable to set as the health
 float oxygen = random(1, 100);//random variable for the oxygen level
 float armour = random(1, 100);//random variable for the armour
@@ -16,7 +19,10 @@ float playerx = random(50, 924);//used for drawing the player marker
 float playery = random(50, 526);
 float objectivex = random(50, 924);//used for drawing the objective marker
 float objectivey = random(50, 546);
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 
 
 void setup() 
@@ -105,14 +111,22 @@ void draw()
   theta += speed;
   
   //setting the colour and displaying the clock
+<<<<<<< HEAD
   fill(255, 140, 0);
+=======
+  fill(0, 255, 255);
+>>>>>>> origin/master
   clock.getTime();
   clock.display();
   
   //draw the button
   if(button.MouseIsOver())
   {
+<<<<<<< HEAD
     fill(255, 140, 0);
+=======
+    fill(0, 255, 255);
+>>>>>>> origin/master
     rect(900,1,100,45);
   }
  
@@ -127,7 +141,11 @@ void draw()
      if(button2.MouseIsOver())
       {
         stroke(0);
+<<<<<<< HEAD
         fill(255, 140, 0);
+=======
+        fill(0, 255, 255);
+>>>>>>> origin/master
         rect(850, 530, 100, 45);
       }
   
@@ -140,9 +158,13 @@ void draw()
 void Health()
 {
   int i = int(health);//turning the random float into an integer 
+<<<<<<< HEAD
   fill(255, 140, 0);
   textSize(30);
   text("HP:", 70, 555);
+=======
+  
+>>>>>>> origin/master
   //series of if, elseif and else statements to change the colour of the health depending on hwo much health you have
   if(health > 67)
   {
@@ -156,7 +178,14 @@ void Health()
   {
     fill (255, 0, 0);
   }
+<<<<<<< HEAD
   text(i, 100, 555);
+=======
+  
+  textSize(30);
+  text("HEALTH:", 70, 555);
+  text(i, 118, 555);
+>>>>>>> origin/master
 }
 
 //Method to display ocygen level
@@ -179,7 +208,14 @@ void Oxygen()
   {
     fill (255, 0, 0);
   }
+<<<<<<< HEAD
   text(i+"%", 270, 555);
+=======
+  
+  textSize(30);
+  text("OXYGEN LEVEL:", 230, 555);
+  text(i+"%", 318, 555);
+>>>>>>> origin/master
 }
 
 //Method to display Armour strength
@@ -202,7 +238,14 @@ void Armour()
   {
     fill (255,0, 0);
   }
+<<<<<<< HEAD
   text(i, 520, 555);
+=======
+  
+  textSize(30);
+  text("ARMOUR STRENGTH:", 460, 555);
+  text(i, 558, 555);
+>>>>>>> origin/master
 }
 
 //method to draw a small crosshair
@@ -211,7 +254,11 @@ void Crosshair()
   stroke(255,0,0);
   fill(255,0,0,50);
   ellipse(mouseX, mouseY, 20, 20);
+<<<<<<< HEAD
 }//end crosshair
+=======
+}
+>>>>>>> origin/master
 
 //Method to check if button has been pressed
 void mousePressed()
@@ -224,7 +271,11 @@ void mousePressed()
   {
     buttonpressed=0;
   }
+<<<<<<< HEAD
 }//end mousePressed
+=======
+}
+>>>>>>> origin/master
 
 void Grid()
 {
@@ -248,7 +299,11 @@ void Grid()
     rect(290, 545, 15, 15);
     
     //creates the legend under the map
+<<<<<<< HEAD
     fill(255, 140, 0);
+=======
+    fill(0, 255, 255);
+>>>>>>> origin/master
     text("PLAYER:", 460, 555);
     text("OBJECTIVE:", 230, 555);
 }
