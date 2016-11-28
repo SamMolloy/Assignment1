@@ -1,15 +1,21 @@
-PFont font;
+PFont font;//creating variable for custom font
 PImage[] background = new PImage[2];//creating an array of images for the background
 Border[] Border = new Border[3];// making 4 border objects
 Clock clock;//making a clock object to put in the hud
-Button button;
+Button button;// creates the button to enter the map
+Button button2;// creates the button to exit the map
 float health = random(1, 100);//Random variable to set as the health
 float oxygen = random(1, 100);//random variable for the oxygen level
 float armour = random(1, 100);//random variable for the armour
 float buttonpressed = 0;//conditional varibale used for the button
 ArrayList<Grid> grid;
-float gridx = 50;
+float gridx = 50;//Used for drawing the grid
 float gridy = 50;
+float playerx = random(50, 924);//used for drawing the player marker
+float playery = random(50, 526);
+float objectivex = random(50, 924);//used for drawing the objective marker
+float objectivey = random(50, 546);
+
 
 void setup() 
 {
@@ -70,13 +76,14 @@ float radius = 75;
 void draw() 
 {
   background(background[0]);//setting background image
-  
+ 
   //for loop to display the borders
   for(int i = 0; i<Border.length; i++)
   {
     Border[i].display();
   }
 
+  //calling the methods to execute
   Health();
   Crosshair();
   Oxygen();
@@ -113,18 +120,14 @@ void draw()
   //if the map button is pressed it will switch to a map of the section of mars you are in
   if(buttonpressed == 1)
   {
-    
-    background[1].resize(1024, 576);
+     background[1].resize(1024, 576);
     background(background[1]);
-    //for loop to display the borders
-    for(Grid g : grid)
-    {
-      g.display();
-    }
+     Grid();
   }
    
 }
 
+//Method to display health bar
 void Health()
 {
   int i = int(health);//turning the random float into an integer 
@@ -146,12 +149,9 @@ void Health()
   textSize(30);
   text("HEALTH:", 70, 555);
   text(i, 118, 555);
-  
-  
-  
-  
 }
 
+//Method to display ocygen level
 void Oxygen()
 {
   int i = int(oxygen);
@@ -175,6 +175,7 @@ void Oxygen()
   text(i+"%", 318, 555);
 }
 
+//Method to display Armour strength
 void Armour()
 {
   int i = int(armour);
@@ -198,6 +199,7 @@ void Armour()
   text(i, 558, 555);
 }
 
+//method to draw a small crosshair
 void Crosshair()
 {
   stroke(255,0,0);
@@ -205,10 +207,38 @@ void Crosshair()
   ellipse(mouseX, mouseY, 20, 20);
 }
 
+//Method to check if button has been pressed
 void mousePressed()
 {
   if(button.MouseIsOver())
   {
     buttonpressed=1;
   }
+}
+
+void Grid()
+{
+  Border[1].display();  
+  
+    //for loop to display the grid lines
+    for(Grid g : grid)
+    {
+      g.display();
+    }
+    
+    //draws the player marker
+    fill(0);
+    stroke(255, 0, 0);
+    ellipse(playerx, playery, 15, 15);
+    ellipse(510, 555, 15, 15);
+    
+    //draws the objective marker
+    stroke(0,0,255);
+    rect(objectivex, objectivey, 15, 15);
+    rect(290, 545, 15, 15);
+    
+    //creates the legend under the map
+    fill(0, 255, 255);
+    text("PLAYER:", 460, 555);
+    text("OBJECTIVE:", 230, 555);
 }
