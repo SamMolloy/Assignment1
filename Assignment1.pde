@@ -2,10 +2,11 @@ PFont font;
 PImage[] background = new PImage[2];//creating an array of images for the background
 Border[] Border = new Border[3];// making 4 border objects
 Clock clock;//making a clock object to put in the hud
-
+Button button;
 float health = random(1, 100);//Random variable to set as the health
 float oxygen = random(1, 100);//random variable for the oxygen level
 float armour = random(1, 100);//random variable for the armour
+
 
 
 void setup() 
@@ -32,7 +33,10 @@ void setup()
   Border[2] = new Border(0, 50, 170, 130);
  
   //placing the clock in the corner of the hud
-  clock = new Clock (30, 950, 560);
+  clock = new Clock (30, 950, 565);
+  
+  //Creating button object 
+  button = new Button("MAP", 900, 1, 100, 45);
 
 }
 
@@ -79,6 +83,15 @@ void draw()
   clock.getTime();
   clock.display();
   
+  //draw the button
+  if(button.MouseIsOver())
+  {
+    fill(0, 255, 255);
+    rect(900,1,100,45);
+  }
+
+  button.Draw();
+   //button = new Button("FULL MAP", 900, 1, 100, 45)
 }
 
 void Health()
@@ -100,8 +113,8 @@ void Health()
   }
   
   textSize(30);
-  text("Health:", 70, 560);
-  text(i, 115, 560);
+  text("HEALTH:", 70, 555);
+  text(i, 118, 555);
   
 }
 
@@ -124,8 +137,8 @@ void Oxygen()
   }
   
   textSize(30);
-  text("Oxygen Level:", 230, 560);
-  text(i+"%", 315, 560);
+  text("OXYGEN LEVEL:", 230, 555);
+  text(i+"%", 318, 555);
 }
 
 void Armour()
@@ -147,8 +160,8 @@ void Armour()
   }
   
   textSize(30);
-  text("Armour Strength:", 460, 560);
-  text(i, 555, 560);
+  text("ARMOUR STRENGTH:", 460, 555);
+  text(i, 558, 555);
 }
 
 void Crosshair()
