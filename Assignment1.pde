@@ -138,7 +138,7 @@ void draw()
      button2.Draw();
   }
   
-  while(healthbutton == 1)
+  if(healthbutton == 1)
   {
     
      if(button3.MouseIsOver())
@@ -150,7 +150,7 @@ void draw()
       button3.Draw();
   }
   
-   while(oxygenbutton == 1)
+   if(oxygenbutton == 1)
   {
     
      if(button4.MouseIsOver())
@@ -160,10 +160,41 @@ void draw()
         rect(210, 470, 100,45);
       }
       button4.Draw();
+      
   }
   
    
-}
+}//end draw()
+
+//Method to check if button has been pressed
+void mousePressed()
+{
+  //detects if the map button has been pressed
+  if(button.MouseIsOver())
+  {
+    buttonpressed=1;
+  }
+  
+  //detects if the exit button has been pressed
+  if(button2.MouseIsOver())
+  {
+    buttonpressed=0;
+  }
+  
+  //detects if the health warning button has been pressed
+   if(button3.MouseIsOver())
+  {
+    health = health+25;
+    healthbutton = 0;
+  }
+  
+  //detects if the oxygen warning button has been pressed
+   if(button4.MouseIsOver())
+  {
+    oxygen = oxygen+25;
+    oxygenbutton = 0;
+  }
+}//end mousePressed
 
 //Method to display health bar
 void Health()
@@ -188,7 +219,7 @@ void Health()
   text(i, 100, 555);
   
   //conditional for warning signal
-  if(health <= 10)
+  if(health <= 15)
   {
     healthbutton = 1;
   }
@@ -217,7 +248,7 @@ void Oxygen()
   text(i+"%", 270, 555);
   
   //conditional for oxygen warning
-  if(oxygen <= 10)
+  if(oxygen <= 15)
   {
     oxygenbutton = 1;
   }
@@ -253,29 +284,6 @@ void Crosshair()
   fill(255,0,0,50);
   ellipse(mouseX, mouseY, 20, 20);
 }//end crosshair
-
-//Method to check if button has been pressed
-void mousePressed()
-{
-  if(button.MouseIsOver())
-  {
-    buttonpressed=1;
-  }
-  if(button2.MouseIsOver())
-  {
-    buttonpressed=0;
-  }
-  
-   if(button3.MouseIsOver())
-  {
-    health = health+25;
-  }
-  
-   if(button4.MouseIsOver())
-  {
-    oxygen = oxygen+25;
-  }
-}//end mousePressed
 
 void Grid()
 {
