@@ -3,7 +3,6 @@ class Grid
   //deacling the variables to be used in drawing the grid
   float x1, y1, x2, y2;
 
-  
   Grid(float x1_, float y1_, float x2_, float y2_) 
   {
     x1 = x1_;
@@ -14,8 +13,8 @@ class Grid
 
   void display() 
   {
-    noStroke();
-    fill(0, 255, 255);
+    strokeWeight(2);
+    stroke(0, 255, 0);
     line(x1, y1, x2, y2);
   }
 }

@@ -7,8 +7,9 @@ float health = random(1, 100);//Random variable to set as the health
 float oxygen = random(1, 100);//random variable for the oxygen level
 float armour = random(1, 100);//random variable for the armour
 float buttonpressed = 0;//conditional varibale used for the button
-ArrayList<Grid> grid;//Array list used for the lines used to draw the map grid
-
+ArrayList<Grid> grid;
+float gridx = 50;
+float gridy = 50;
 
 void setup() 
 {
@@ -39,10 +40,23 @@ void setup()
   //Creating button object 
   button = new Button("MAP", 900, 1, 100, 45);
   
-  grid = new ArrayList<Grid>();//
+  grid = new ArrayList<Grid>();
+  //adding the vertical gridlines to the arraylist
+  for(int i=0; i<11; i++)
+  {
+    grid.add(new Grid(gridx, 50, gridx, 526));
+    gridx = gridx + 92.4;
+  }
+  
+  //adding the horizontal gridlines to the arraylist
+  for(int i = 0; i<7; i++)
+  {
+    grid.add(new Grid(50, gridy, 974, gridy));
+    gridy = gridy + 79.3;
+  }
   
   
-
+ 
 }
 
 //Variables for the radar
@@ -96,11 +110,17 @@ void draw()
   }
   button.Draw();
   
+  //if the map button is pressed it will switch to a map of the section of mars you are in
   if(buttonpressed == 1)
   {
+    
     background[1].resize(1024, 576);
     background(background[1]);
-    
+    //for loop to display the borders
+    for(Grid g : grid)
+    {
+      g.display();
+    }
   }
    
 }
