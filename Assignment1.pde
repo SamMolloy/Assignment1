@@ -4,8 +4,8 @@ Border[] Border = new Border[3];// making 4 border objects
 Clock clock;//making a clock object to put in the hud
 Button button;// creates the button to enter the map
 Button button2;// creates the button to exit the map
-Button button3;
-Button button4;
+Button button3;//used for a low health warning
+Button button4;//used for a low oxygen warning
 float healthbutton = 0;//conditional variable for health warning
 float oxygenbutton = 0;//conditional variable for oxygen warning
 float health = random(1, 100);//Random variable to set as the health
@@ -120,7 +120,6 @@ void draw()
     fill(255, 140, 0);
     rect(900,1,100,45);
   }
- 
   button.Draw();
   
   //if the map button is pressed it will switch to a map of the section of mars you are in
@@ -139,7 +138,7 @@ void draw()
      button2.Draw();
   }
   
-  if(healthbutton == 1)
+  while(healthbutton == 1)
   {
     
      if(button3.MouseIsOver())
@@ -151,7 +150,7 @@ void draw()
       button3.Draw();
   }
   
-   if(oxygenbutton == 1)
+   while(oxygenbutton == 1)
   {
     
      if(button4.MouseIsOver())
@@ -269,12 +268,12 @@ void mousePressed()
   
    if(button3.MouseIsOver())
   {
-    healthbutton = 0;
+    health = health+25;
   }
   
    if(button4.MouseIsOver())
   {
-    oxygenbutton = 0;
+    oxygen = oxygen+25;
   }
 }//end mousePressed
 
