@@ -1,4 +1,3 @@
-
 class Border 
 {
   //deacling the variable to be used in the rectangles(borders)
@@ -16,7 +15,7 @@ class Border
   void display() 
   {
     noStroke();
-    fill(0, 200, 255, 70);//setting the border's colour and opacity
+    fill(0, 0, 0, 99);//setting the border's colour and opacity
     rect(x, y, w, h);//drawing the border using rectangles
   }
 }
