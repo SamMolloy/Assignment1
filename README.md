@@ -22,5 +22,6 @@ the numbers will turn red. In the case of the health and oxygen meters, if eithe
   map. Beside this key there is an exit button that will return you to the first screen with your 
   crosshair, health, oxygen etc.
   
-Link to YouTube demo: https://www.youtube.com/watch?v=hZA7-8_dFRY
+
+[![Video](http://img.youtube.com/vi/watch?v=hZA7-8_dFRY/0.jpg)](http://www.youtube.com/watch?v=hZA7-8_dFRYE)
 Link to Github with code: https://github.com/SamMolloy/Assignment1
